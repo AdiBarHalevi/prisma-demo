@@ -6,7 +6,10 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "db:up": "docker compose start db || docker compose up -d db",
+    "db:rm": "docker compose stop db && docker compose rm -f db && docker volume rm $(docker volume ls -qf name=prisma-demo_db_data) || true",
+    "db:restart": "npm run db:rm && npm run db:up"
   },
   "dependencies": {
     "react": "19.1.0",
