@@ -46,7 +46,7 @@ cd prisma-demo
 ### 2. Start the Database
 
 ```bash
-npm run db:up
+npm run db:restart
 ```
 
 This launches a PostgreSQL database container (see `docker-compose.yml` for configuration).
