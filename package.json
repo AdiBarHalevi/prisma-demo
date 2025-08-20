@@ -9,7 +9,8 @@
     "lint": "eslint",
     "db:up": "docker compose start db || docker compose up -d db",
     "db:rm": "docker compose stop db && docker compose rm -f db && docker volume rm $(docker volume ls -qf name=prisma-demo_db_data) || true",
-    "db:restart": "npm run db:rm && npm run db:up"
+    "db:restart": "npm run db:rm && npm run db:up",
+    "prisma:client:generate": "prisma generate"
   },
   "dependencies": {
     "@prisma/client": "^6.14.0",
