@@ -13,3 +13,8 @@ datasource db {
   provider = "mysql"
   url      = env("DATABASE_URL")
 }
+
+generator zod {
+  provider = "prisma-zod-generator"
+  output   = "./src/generated/zod" // or wherever you want them
+}
