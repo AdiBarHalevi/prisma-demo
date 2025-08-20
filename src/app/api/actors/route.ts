@@ -1,5 +1,5 @@
 import { NextResponse, NextRequest } from "next/server";
-import { PrismaClient } from "@prisma/client";
+import { PrismaClient, actor as Actor } from "@prisma/client";
 import { validateActorWhere } from "./validateActorSelect";
 
 const prisma = new PrismaClient();
@@ -12,7 +12,7 @@ export async function GET(request: NextRequest) {
   if (validationResponse) return validationResponse;
 
   try {
-    const actors = await prisma.actor.findMany({
+    const actors: Actor[] = await prisma.actor.findMany({
       where,
       take: 10,
     });
@@ -23,4 +23,5 @@ export async function GET(request: NextRequest) {
       { status: 500 }
     );
   }
+  // ...existing code...
 }
